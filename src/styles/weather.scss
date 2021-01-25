@@ -1,0 +1,59 @@
+.you {
+  color: #40c057;
+}
+.liang {
+  color: #82c91e;
+}
+.qingdu {
+  color: #f76707;
+}
+.zhongdu {
+  color: #e03131;
+}
+.you-bg {
+  background-color: #40c057;
+}
+.liang-bg {
+  background-color: #82c91e;
+}
+.qingdu-bg {
+  background-color: #f76707;
+}
+.zhongdu-bg {
+  background-color: #e03131;
+}
+
+@mixin weather-icon-common {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.sunny {
+  background-image: url('//chengzhx76.cn/wechat/weather/sunny.svg'); 
+}
+.sunny-hight {
+  background-image: url('//chengzhx76.cn/wechat/weather/sunny-hight.svg'); 
+}
+.partly-cloudy {
+  background-image: url('//chengzhx76.cn/wechat/weather/partly-cloudy.svg'); 
+}
+.partly-cloudy-hight {
+  background-image: url('//chengzhx76.cn/wechat/weather/partly-cloudy-hight.svg'); 
+}
+.cloudy {
+  background-image: url('//chengzhx76.cn/wechat/weather/cloudy.svg');
+}
+.wind {
+  background-image: url('//chengzhx76.cn/wechat/weather/wind.svg');
+}
+.haze {
+  background-image: url('//chengzhx76.cn/wechat/weather/haze.svg');
+  background-size: 85% !important;
+}
+.rain {
+  background-image: url('//chengzhx76.cn/wechat/weather/rain.svg');
+}
+.snow {
+  background-image: url('//chengzhx76.cn/wechat/weather/snow.svg');
+}

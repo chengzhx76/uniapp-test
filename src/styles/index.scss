@@ -1,0 +1,170 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+page {
+  // padding-top: $titleBar;
+  background: $pageBg;
+  height: 100%;
+}
+
+.gray-icon {
+  color: $iconColor;
+}
+.white-icon {
+  color: $white;
+}
+.blue-icon {
+  color: $light-blue;
+}
+.gray-blue-icon {
+  color: $gray-blue;
+}
+.gray-pink-icon {
+  color: $pink;
+}
+
+.placeholder-color {
+  color: $placeholderColor;
+}
+
+button::after {
+  border: 0;
+}
+
+.btn {
+  font-size: 34rpx;
+}
+
+.no-hover {
+  opacity: 0.7;
+}
+.txic-hover {
+  opacity: 0.7;
+}
+
+.active-hover {
+  background-color:$hover !important;
+}
+
+.choose-hover {
+  background-color: rgba(240, 240, 240, 0.5);
+  opacity: 0.7;
+  // background-color: rgba(0,0,0,.1);
+}
+
+.tab-hover {
+  background-color: rgba(240, 240, 240, 0.5);
+  opacity: 0.7;
+}
+
+.btn-group {
+  width: 100%;
+  .btn {
+    @include height-rpx-width-percent(100, 90%);
+    @include text-center;
+    border-radius: 60rpx;
+  }
+  .gray-btn {
+    background: $gray-blue;
+    color: $white;
+    margin-bottom: 40rpx;
+  }
+  .white-btn {
+    background: $white;
+    color: #808080;
+  }
+  .red-btn {
+    background: $red;
+    color: $white;
+  }
+}
+
+.add-button {
+  @include height-rpx-width-percent(150);
+  @include fixed-bottom;
+  @include border(top);
+  @include justify-align;
+  z-index: 55;
+  background: $white;
+  .add-btn {
+    @include height-width-percent-text-line(90, 90%);
+    background: $gray-blue;
+    border-radius: 60rpx;
+    color: $white;
+  }
+}
+
+.header-nav {
+  widows: 100%;
+  position: fixed;
+  left: 0;
+  z-index: $headerFixedZIndex;
+}
+
+
+// 蒙版
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: $maskZIndex;
+  background: rgba(0,0,0,.4);
+}
+
+.service-line {
+  @include height-width(40, 300);
+  @include justify-align;
+  @include border(top, $color:$borderDeepColor);
+  margin-top: 50rpx;
+  font-size: 28rpx;
+  text-align: center;
+  .menu {
+    width: 160rpx;
+    position: relative;
+    top: -22rpx;
+    background: $pageBg;
+    color: $aHover;
+    // background: #FB7E7E;
+  }
+}
+
+.more {
+  @include height-width-percent-text-line(50);
+  font-size: 32rpx;
+  color: $aHover;
+}
+
+.mark-xs {
+  @include height-width(10);
+  @include border-radius(10);
+  background: $red;
+}
+
+.mark-sm {
+  @include height-width(15);
+  @include border-radius(15);
+  background: $red;
+}
+.mark-md {
+  @include height-width(20);
+  @include border-radius(20);
+  background: $red;
+}
+
+.mark-lg {
+  @include height-width(25);
+  @include border-radius(25);
+  background: $red;
+}
+
+.error {
+  color: #DA635B;
+}
+
+// }
+
+// ================ fixed ====================
+
+// ==========================================

@@ -1,0 +1,341 @@
+@import './variables.scss';
+
+@mixin height-width-percent($height:$percent-100, $width:$percent-100) {
+  height: $height;
+  width: $width;
+}
+
+@mixin height-width($height, $width:$height) {
+  height: #{$height}rpx;
+  width: #{$width}rpx;
+}
+
+@mixin height-rpx-width-percent($height, $width:$percent-100) {
+  height: #{$height}rpx;
+  width: $width;
+}
+
+@mixin width-rpx-height-percent($width, $height:$percent-100) {
+  height: $height;
+  width: #{$width}rpx;
+}
+
+
+@mixin height-width-text-line($height, $width:$height, $lineHeight:$height, $align: center) {
+  height: #{$height}rpx;
+  width: #{$width}rpx;
+  line-height: #{$height}rpx;
+  text-align: $align;
+}
+@mixin height-width-percent-text-line($height, $width:100%, $lineHeight:$height, $align: center) {
+  height: #{$height}rpx;
+  width: $width;
+  line-height: #{$height}rpx;
+  text-align: $align;
+}
+
+@mixin height-line($height, $lineHeight:$height) {
+  height: #{$height}rpx;
+  line-height: #{$lineHeight}rpx;
+}
+
+@mixin height-line-center($height, $lineHeight:$height) {
+  height: #{$height}rpx;
+  line-height: #{$lineHeight}rpx;
+  text-align: center;
+}
+
+@mixin text-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ======================准备废弃 start=========================
+
+@mixin height-width-percent-text($height, $width, $position) {
+  height: #{$height}rpx;
+  width: $width;
+  text-align: $position;
+  line-height: #{$height}rpx;
+}
+@mixin height-width-rpx-text($height, $width, $position:left) {
+  height: #{$height}rpx;
+  width: #{$width}rpx;
+  text-align: $position;
+  line-height: #{$height}rpx;
+}
+@mixin height-width-rpx-text-line($height, $width, $lineHeight, $position) {
+  height: #{$height}rpx;
+  width: #{$width}rpx;
+  text-align: $position;
+  line-height: #{$lineHeight}rpx;
+}
+
+@mixin height-width-100-text($height, $position:left) {
+  height: #{$height}rpx;
+  width: $percent-100;
+  text-align: $position;
+  line-height: #{$height}rpx;
+}
+@mixin height-100-line-height($position, $lineHeight) {
+  height: $percent-100;
+  text-align: $position;
+  line-height: #{$lineHeight}rpx;
+}
+
+@mixin height-text($height, $position, $lineHeight:$height) {
+  height: #{$height}rpx;
+  text-align: $position;
+  line-height: #{$lineHeight}rpx;
+}
+
+
+@mixin height-width-line($height, $width:$height, $lineHeight:$height) {
+  height: #{$height}rpx;
+  width: #{$width}rpx;
+  line-height: #{$lineHeight}rpx;
+}
+
+@mixin height-width-percent-indent-line($height, $width, $indent, $lineHeight:$height) {
+  height: #{$height}rpx;
+  width: $width;
+  text-indent: #{$indent}rpx;
+  line-height: #{$lineHeight}rpx;
+}
+
+@mixin height-indent-line($height, $indent, $lineHeight:$height) {
+  height: #{$height}rpx;
+  text-indent: #{$indent}rpx;
+  line-height: #{$lineHeight}rpx;
+}
+
+@mixin flex-text-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+// ========================end============================
+
+// ================ 布局 start ==============
+
+@mixin justify-align($justify:center, $align:center, $direction:row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin justify($justify:center) {
+  display: flex;
+  justify-content: $justify;
+}
+@mixin align($align:center, $direction:row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+}
+// ================ 布局 end==============
+
+@mixin justify-start-align-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+@mixin justify-start {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+@mixin justify-space-between {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@mixin column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@mixin justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+@mixin align-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+@mixin justify-center-align-end {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@mixin justify-start-align-end {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+@mixin justify-end-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@mixin justify-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@mixin column-align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@mixin align-center {
+  display: flex;
+  align-items: center;
+}
+
+// ================ 边框 start ==============
+
+@mixin border($position:all, $width:1, $color:$borderColor) {
+  box-sizing: border-box;
+  @if $position == all {
+    border: #{$width}rpx solid $color;
+  } @else {
+    border-#{$position}: #{$width}rpx solid $color;
+  }
+}
+@mixin border-none($position) {
+  border-#{$position}: none;
+}
+
+// ================ 边框 end==============
+
+@mixin box-shadow {
+  box-shadow: 2rpx 2rpx 10rpx $boxShadowColor;
+}
+
+@mixin box-shadow-width($width) {
+  box-shadow: #{$width}rpx #{$width}rpx 10rpx $boxShadowColor;
+}
+
+// ================ 圆角 start ==============
+@mixin border-radius($val, $position:all) {
+  @if $position == top {
+    border-top-left-radius: #{$val}rpx;
+    border-top-right-radius: #{$val}rpx;
+  } @else if $position == left {
+    border-top-left-radius: #{$val}rpx;
+    border-bottom-left-radius: #{$val}rpx;
+  } @else if $position == bottom {
+    border-bottom-right-radius: #{$val}rpx;
+    border-bottom-left-radius: #{$val}rpx;
+  } @else if $position == right {
+    border-top-right-radius: #{$val}rpx;
+    border-bottom-right-radius: #{$val}rpx;
+  } @else {
+    border-radius: #{$val}rpx;
+  }
+}
+@mixin border-radius-percent($val:50%, $position:all) {
+  @if $position == top {
+    border-top-left-radius: $val;
+    border-top-right-radius: $val;
+  } @else if $position == left {
+    border-top-left-radius: $val;
+    border-bottom-left-radius: $val;
+  } @else if $position == bottom {
+    border-bottom-right-radius: $val;
+    border-bottom-left-radius: $val;
+  } @else if $position == right {
+    border-top-right-radius: $val;
+    border-bottom-right-radius: $val;
+  } @else {
+    border-radius: $val;
+  }
+}
+// ================ 圆角 end==============
+
+@mixin over-hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin arrow($val, $right, $top, $color:$arrowColor, $rotate:135) {
+  content: " ";
+  display: inline-block;
+  height: #{$val}rpx;
+  width: #{$val}rpx;
+  border-top: 4rpx solid $color;
+  border-left: 4rpx solid $color;
+  transform: rotate(#{$rotate}deg);
+  position: absolute;
+  right: #{$right}rpx;
+  top: #{$top}rpx;
+}
+
+@mixin absolute($top:0, $left:0) {
+  position: absolute;
+  top: #{$top}rpx;
+  left: #{$left}rpx;
+}
+
+@mixin absolute-right($top:0, $right:0) {
+  position: absolute;
+  top: #{$top}rpx;
+  right: #{$right}rpx;
+}
+
+@mixin fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+// ==================================
+@mixin fixed-top($top:0, $let:0) {
+  position: fixed;
+  top: #{$top}rpx;
+  left: #{$let}rpx;
+}
+
+@mixin fixed-bottom($bottom:0, $let:0) {
+  position: fixed;
+  bottom: #{$bottom}rpx;
+  left: #{$let}rpx;
+}
+
+@mixin fixed-header($top:0, $let:0) {
+  @include fixed-top($top, $let);
+  z-index: $headerFixedZIndex;
+}
+
+@mixin fixed-footer($bottom:0, $let:0) {
+  @include fixed-bottom($bottom, $let);
+  z-index: $footerFixedZIndex;
+}
+
+@mixin button($radius:0) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border-radius: #{$radius}rpx;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+}
+
+@mixin cover($height) {
+  height: #{$height}rpx;
+  width: $percent-100;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}

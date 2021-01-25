@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "npm run dev:mp-weixin",
     "serve": "npm run dev:h5",
     "build": "npm run build:h5",
     "build:app-plus": "cross-env NODE_ENV=production UNI_PLATFORM=app-plus vue-cli-service uni-build",
@@ -58,7 +59,9 @@
     "@vue/shared": "^3.0.0",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
+    "node-sass": "4.14.1",
     "regenerator-runtime": "^0.12.1",
+    "sass-loader": "7.3.1",
     "vue": "^2.6.11",
     "vuex": "^3.2.0"
   },
