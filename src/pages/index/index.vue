@@ -1,9 +1,8 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view>
-			<text class="title">{{title}}</text>
-		</view>
+		<navigator  url="/pages/test/ShowTips" hover-class="navigator-hover">ShowTips</navigator>
+		<navigator url="/pages/test/TestCoverPage" hover-class="navigator-hover">CoverPage</navigator>
+		<navigator url="/pages/test/TestSlideview" hover-class="navigator-hover">Slideview</navigator>
 	</view>
 </template>
 
@@ -24,26 +23,10 @@
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+	navigator {
+		height: 70rpx;
+		text-align: center;
+		line-height: 70rpx;
+		border-bottom: 1px solid #000;
 	}
 </style>
