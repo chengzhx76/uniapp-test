@@ -2,7 +2,7 @@
   <view class="sildeview">
     <view class="sildeview-left left""
       :change:res="silde.resReady" :res="res"
-      :change:show="silde.showChange" :show="show"
+      :change:isShow="silde.isShowChange" :isShow="isShow"
       :change:disable="silde.disableChange" :disable="disable"
       :change:duration="silde.durationChange" :duration="duration"
       :change:rebounce="silde.rebounceChange" :rebounce="rebounce"
@@ -136,7 +136,7 @@
     if (!st.size || !st.isMoving) return
     // 左侧45度角为界限，大于45度则允许水平滑动
     if (st.firstAngle < 0) {
-        return
+      return
     }
     var duration = st.duration / 1000
     st.isMoving = false
@@ -158,13 +158,13 @@
         })
       }
 
-      ownerInstance.callMethod('hideSlide')
+      ownerInstance.callMethod('hide')
       return
 
     }
 
     showButtons(ins, ownerInstance, duration)
-    ownerInstance.callMethod('showSlide')
+    ownerInstance.callMethod('show')
 
   }
 
@@ -264,7 +264,7 @@
     }
   }
 
-  var showChange = function(newVal, oldVal, ownerInstance, ins) {
+  var isShowChange = function(newVal, oldVal, ownerInstance, ins) {
     var st = ins.getState()
     st.show = newVal
     if (st.disable) return
@@ -302,7 +302,7 @@
 
   module.exports = {
     resReady: resReady,
-    showChange: showChange,
+    isShowChange: isShowChange,
     disableChange: disableChange,
     durationChange: durationChange,
     rebounceChange: rebounceChange,
@@ -321,7 +321,7 @@
       return {
         // 资源
         res: null,
-        show: false,    // 是否显示slideview，可以控制隐藏显示
+        isShow: false,    // 是否显示slideview，可以控制隐藏显示
         disable: false,// 是否禁用slideview
         duration: 1000, // 显示隐藏的动画的时长，单位ms
         throttle: 40,  // 手指移动距离超过该值的时候，触发slideview的显示隐藏
@@ -340,7 +340,7 @@
           this.res = {
             button: leftRects,
             buttons: btnRect,
-            show: this.show,
+            show: this.isShow,
             disable: this.disable,
             duration: this.duration,
             throttle: this.throttle,
@@ -348,10 +348,10 @@
           }
         })
       },
-      hideSlide() {
+      hide() {
         console.log('hide')
       },
-      showSlide() {
+      show() {
         console.log('show')
       },
       choose(index) {
