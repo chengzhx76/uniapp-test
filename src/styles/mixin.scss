@@ -125,10 +125,12 @@
   align-items: $align;
   justify-content: $justify;
 }
+// 左右居中
 @mixin justify($justify:center) {
   display: flex;
   justify-content: $justify;
 }
+// 上下居中
 @mixin align($align:center, $direction:row) {
   display: flex;
   flex-direction: $direction;
@@ -280,10 +282,10 @@
   top: #{$top}rpx;
 }
 
-@mixin absolute($top:0, $left:0) {
+@mixin absolute($top:0, $left:$top, $position:left) {
   position: absolute;
   top: #{$top}rpx;
-  left: #{$left}rpx;
+  #{$position}: #{$left}rpx;
 }
 
 @mixin absolute-right($top:0, $right:0) {
@@ -299,27 +301,28 @@
 }
 
 // ==================================
-@mixin fixed-top($top:0, $let:0) {
+@mixin fixed-top($top:0, $offset:0, $position:left) {
   position: fixed;
   top: #{$top}rpx;
-  left: #{$let}rpx;
+  #{$position}: #{$offset}rpx;
 }
 
-@mixin fixed-bottom($bottom:0, $let:0) {
+@mixin fixed-bottom($bottom:0, $offset:0, $position:left) {
   position: fixed;
   bottom: #{$bottom}rpx;
-  left: #{$let}rpx;
+  #{$position}: #{$offset}rpx;
 }
 
-@mixin fixed-header($top:0, $let:0) {
-  @include fixed-top($top, $let);
+@mixin fixed-header($top:0, $offset:0, $position:left) {
+  @include fixed-top($top, $offset, $position);
   z-index: $headerFixedZIndex;
 }
 
-@mixin fixed-footer($bottom:0, $let:0) {
-  @include fixed-bottom($bottom, $let);
+@mixin fixed-footer($bottom:0, $offset:0, $position:left) {
+  @include fixed-bottom($bottom, $offset, $position);
   z-index: $footerFixedZIndex;
 }
+
 
 @mixin button($radius:0) {
   margin: 0;
@@ -333,6 +336,15 @@
 
 @mixin cover($height) {
   height: #{$height}rpx;
+  width: $percent-100;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@mixin cover-all {
+  height: $percent-100;
   width: $percent-100;
   position: absolute;
   left: 0;

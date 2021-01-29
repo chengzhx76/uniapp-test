@@ -6,14 +6,17 @@
 				"navigationBarTitleText": "Demo"
 			}
 		},
+		{
+			"path": "pages/test/ChooseSwitch"
+		},
+		{
+			"path": "pages/test/TestSlideview"
+		},
     {
 			"path": "pages/test/ShowTips"
     },
 		{
       "path": "pages/test/TestCoverPage"
-		},
-		{
-			"path": "pages/test/TestSlideview"
 		}
 	],
 	"globalStyle": {

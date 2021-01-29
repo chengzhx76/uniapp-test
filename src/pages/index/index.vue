@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		<navigator  url="/pages/test/ChooseSwitch" hover-class="navigator-hover">ChooseSwitch</navigator>
 		<navigator  url="/pages/test/ShowTips" hover-class="navigator-hover">ShowTips</navigator>
 		<navigator url="/pages/test/TestCoverPage" hover-class="navigator-hover">CoverPage</navigator>
 		<navigator url="/pages/test/TestSlideview" hover-class="navigator-hover">Slideview</navigator>
