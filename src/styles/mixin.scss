@@ -126,8 +126,9 @@
   justify-content: $justify;
 }
 // 左右居中
-@mixin justify($justify:center) {
+@mixin justify($justify:center, $direction:row) {
   display: flex;
+  flex-direction: $direction;
   justify-content: $justify;
 }
 // 上下居中
@@ -218,11 +219,7 @@
 
 // ================ 边框 end==============
 
-@mixin box-shadow {
-  box-shadow: 2rpx 2rpx 10rpx $boxShadowColor;
-}
-
-@mixin box-shadow-width($width) {
+@mixin box-shadow($width:2) {
   box-shadow: #{$width}rpx #{$width}rpx 10rpx $boxShadowColor;
 }
 
