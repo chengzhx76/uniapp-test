@@ -1,6 +1,6 @@
 body{
-   font-family: "Dosis",sans-serif;
-  text-align: center;
+    font-family: "Dosis",sans-serif;
+    text-align: center;
 }
 
 #menu {
@@ -75,7 +75,7 @@ opacity: 0.5;
 }
 
 #menu:target>.menu-item:nth-child(6) {
-    transform: rotate(60deg) translateY(-150px) rotate(300deg);
+    transform: rotate(60deg) translateY(-150px) rotate(30deg);
     transition-delay: 0s;
 }
 

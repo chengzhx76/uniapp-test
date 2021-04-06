@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8" />
+<title>起售时间</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="false" name="twcClient" id="twcClient" />
+<meta content="yes" name="apple-touch-fullscreen" />
+<link rel="stylesheet" href="https://mobile.12306.cn/weixin/resources/weixin/css/g.tbcdn.cn.css" />
+<link rel="stylesheet" href="https://mobile.12306.cn/weixin/resources/weixin/css/index.css" />
+</head>
+<script>
+  /*<![CDATA[*/
+   var ctx='/weixin/';
+   /*]]>*/
+</script>
+<body><div data-role="page-container"><div data-role="page" class="ui-page query-page" id="indexPage"><!-- header class="ui-header">
+      <ul><li class="ui-title"><strong>起售时间</strong></li></ul>
+    </header -->
+<article class="ui-content"><section class="ui-section ui-fieldset query-table" id="J_query_table"><form class="query-form" id="J_query_form"><ul class="ui-fieldlist"><li class="ui-field" id="J_depart_station"><label style="width:15%;" class="ui-field-label">车站</label>
+<input style="width:81%;" onclick="showcity();" class="ui-field-input" type="text" id="J_depart_name" value="" name="depLocation" readonly="readonly" />
+<input type="hidden" id="J_depart_code" name="depCode" value="BJP" />
+<!-- section style="width:20%; margin:0 0 0 15px;box-sizing: border-box;-webkit-box-sizing: border-box;-webkit-appearance: none;" class="ui-section ui-control query-ticket">
+                <div class="ui-control-btn" id="J_query_btn" onclick="searchlist();">
+                  <a style="height:35px;">查询</a>
+                </div>
+              </section -->
+</li>
+</ul>
+</form>
+</section>
+<p id="qishoushijian" style="margin:10px 6px; background:#fff; color:#333; border-radius:.3em; padding:10px; line-height:20px;"></p>
+</article>
+</div>
+<div data-role="citypage" class="ui-page station-page ui-page-active" id="citypage" data-title="车站选择" style="z-index: 1000; width: 0%; right:0px; left: auto; overflow: hidden;"><header class="ui-header"><ul><li class="ui-header-btn ui-header-back"><a onclick="showindex(&#39;citypage&#39;);" href="javascript:;" data-rel="back"></a>
+</li>
+<li class="ui-title"><strong>车站选择</strong>
+</li>
+<li class="ui-header-btn"></li>
+</ul>
+</header>
+<article class="ui-content"><section class="station-search"><div class="station-search-con"><p class="station-search-ipt"><input type="text" placeholder="简拼/全拼/汉字" id="J_station_search" oninput="searchWord(this);" />
+<a href="javascript:;" id="J_clear_search" data-ajax="false"><span><b></b>
+</span>
+</a>
+</p>
+</div>
+</section>
+<section class="station-tabview m-tabview"><div class="station-tablist"><ul class="station-tabs m-tabview-tabs"><li id="changyongbtn" onclick="switchtab(&#39;changyong&#39;);" class="station-tab m-tabview-selected m-tabview-tab">最近常用</li>
+<li id="hotcitybtn" onclick="switchtab(&#39;hotcity&#39;);" class="station-tab m-tabview-tab">热门车站</li>
+<li id="citylistbtn" onclick="switchtab(&#39;citylist&#39;);" class="station-tab m-tabview-tab">车站列表</li>
+</ul>
+</div>
+<div class="station-content" style="overflow: auto;"><div class="station-tscroller" style="-webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate3d(0px, 0px, 0px) scale(1);"><div class="station-panels m-tabview-panels"><div class="station-panel m-tabview-show m-tabview-panel"><ul class="station-list" id="citybox"></ul>
+<ul class="station-list" id="his_citybox" style="display:none;"></ul>
+<ul class="station-list" id="hot_citybox" style="display:none;"></ul>
+<ul class="station-list" id="all_citybox" style="display:none;"></ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+</article>
+</div>
+<section class="zepto-pop-loading" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; box-sizing: border-box; z-index: 110;display: none;"><div class="loading-tips" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; width: 100px; height: 55px; line-height: 1.2em; z-index: 112; text-align: center; padding: 10px 5px; color: #000; font-size: 14px; background: rgba(0,0,0,.3); border-radius: 10px;"><p style=" padding-bottom:5px;color:#fff;">正在加载……</p>
+<img alt="" style="width: 32px; height:32px; vertical-align: text-bottom;" src="https://mobile.12306.cn/weixin/resources/weixin/images/T1FnTWFihXXXcj5F6l-64-64.gif" />
+</div>
+<div class="mask" style="width: 100%; height: 100%; background: #000; opacity: 0; z-index: 111;"></div>
+</section>
+</div>
+<div class="query-error" style="display: none; opacity: 0"></div>
+<ul class="footerNav"><li><a href="https://mobile.12306.cn/weixin/wxcore/init?type=wxxcx">余票查询</a>
+</li>
+<li><a href="https://mobile.12306.cn/weixin/wxcore/initCC?type=wxxcx">车次查询</a>
+</li>
+<li><a href="https://mobile.12306.cn/weixin/wxcore/ysqcx?type=wxxcx">预售期</a>
+</li>
+<li class="footercurr"><a>起售时间</a>
+</li>
+</ul>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/weixin/js/zepto.min.js"></script>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/weixin/js/json2-min.js"></script>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/weixin/js/base.js?version=1.102"></script>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/weixin/js/calendar.js?version=1.102"></script>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/js/framework/station_name.js?version=1.102"></script>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/js/framework/favorite_name.js?version=1.102"></script>
+<script type="text/javascript" src="https://mobile.12306.cn/weixin/resources/js/query/qss.js?version=1.102"></script>
+<script src="https://mobile.12306.cn/weixin/resources/weixin/js/qishoushijian.js?version=1.102"></script>
+</body>
+</html>

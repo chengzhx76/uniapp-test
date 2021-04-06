@@ -112,6 +112,17 @@ button::after {
   z-index: $maskZIndex;
   background: rgba(0,0,0,.4);
 }
+// 蒙版 透明
+.mask-transparent {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: $maskZIndex;
+  // background: rgba(0,0,0,.4);
+}
 
 .service-line {
   @include height-width(40, 300);
@@ -130,33 +141,21 @@ button::after {
   }
 }
 
-.more {
-  @include height-width-percent-text-line(50);
-  font-size: 32rpx;
-  color: $aHover;
+
+// 小红点（消息提示）
+.mark-xs:after {
+  @include mark(10);
 }
 
-.mark-xs {
-  @include height-width(10);
-  @include border-radius(10);
-  background: $red;
+.mark-sm:after {
+  @include mark(15);
+}
+.mark-md:after {
+  @include mark(20);
 }
 
-.mark-sm {
-  @include height-width(15);
-  @include border-radius(15);
-  background: $red;
-}
-.mark-md {
-  @include height-width(20);
-  @include border-radius(20);
-  background: $red;
-}
-
-.mark-lg {
-  @include height-width(25);
-  @include border-radius(25);
-  background: $red;
+.mark-lg:after {
+  @include mark(25);
 }
 
 .error {

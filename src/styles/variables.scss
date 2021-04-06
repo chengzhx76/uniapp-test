@@ -15,6 +15,7 @@ $menuZIndex: 888;
 $popupZIndex: 888;
 $diglogZIndex: 888;
 $maskZIndex: 777;
+$tipsZIndex: 999;
 $loadingZIndex: 555;
 
 
@@ -34,9 +35,11 @@ $titleDeepColor: #164372;
 $inputBgColor: #F0F0F0;
 $borderColor: #EDEDED;
 $borderDeepColor: #BFBFBF;
+$borderDeepGrayColor: #BFBFBF;
 $boxShadowColor: #DADADA;
 $iconColor: #DADADA;
 $iconDeepColor: #5f7d95;
+$iconDeepGrayColor: #717783;
 $arrowColor: #DADADA;
 $placeholderColor: #E0E0E0;
 $tipColor: #989898;
@@ -64,4 +67,8 @@ $vipColor: #bb7c38;
 $vipBgColor: #f4e3c5;
 
 $warnColor: #C75D52;
+
+// TODO tag
+$tagColor: #6283EF;
+$tagBgColor: #EFF3FD;
 

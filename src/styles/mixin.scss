@@ -20,7 +20,6 @@
   width: #{$width}rpx;
 }
 
-
 @mixin height-width-text-line($height, $width:$height, $lineHeight:$height, $align: center) {
   height: #{$height}rpx;
   width: #{$width}rpx;
@@ -119,6 +118,7 @@
 
 // ================ 布局 start ==============
 
+ // ($justify:space-between) ($justify: flex-end)
 @mixin justify-align($justify:center, $align:center, $direction:row) {
   display: flex;
   flex-direction: $direction;
@@ -132,6 +132,7 @@
   justify-content: $justify;
 }
 // 上下居中
+// ($direction:column)
 @mixin align($align:center, $direction:row) {
   display: flex;
   flex-direction: $direction;
@@ -219,6 +220,14 @@
 
 // ================ 边框 end==============
 
+// @mixin box-shadow {
+//   box-shadow: 2rpx 2rpx 10rpx $boxShadowColor;
+// }
+
+// @mixin box-shadow-width($width) {
+//   box-shadow: #{$width}rpx #{$width}rpx 10rpx $boxShadowColor;
+// }
+
 @mixin box-shadow($width:2) {
   box-shadow: #{$width}rpx #{$width}rpx 10rpx $boxShadowColor;
 }
@@ -258,6 +267,10 @@
     border-radius: $val;
   }
 }
+@mixin round($val) {
+  @include height-width($val);
+  border-radius: #{$val}rpx;
+}
 // ================ 圆角 end==============
 
 @mixin over-hidden {
@@ -265,6 +278,17 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin over-hidden-max-line($line:2) {
+  // position: relative;
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+
 
 @mixin arrow($val, $right, $top, $color:$arrowColor, $rotate:135) {
   content: " ";
@@ -279,12 +303,18 @@
   top: #{$top}rpx;
 }
 
-@mixin absolute($top:0, $left:$top, $position:left) {
+// @mixin absolute($top:0, $left:0) {
+//   position: absolute;
+//   top: #{$top}rpx;
+//   left: #{$left}rpx;
+// }
+@mixin absolute($top:0, $val:$top, $position:left) {
   position: absolute;
   top: #{$top}rpx;
-  #{$position}: #{$left}rpx;
+  #{$position}: #{$val}rpx;
 }
 
+// 不推荐使用
 @mixin absolute-right($top:0, $right:0) {
   position: absolute;
   top: #{$top}rpx;
@@ -298,6 +328,8 @@
 }
 
 // ==================================
+// border-#{$position}: #{$width}rpx solid $color;
+// $position:all
 @mixin fixed-top($top:0, $offset:0, $position:left) {
   position: fixed;
   top: #{$top}rpx;
@@ -320,7 +352,6 @@
   z-index: $footerFixedZIndex;
 }
 
-
 @mixin button($radius:0) {
   margin: 0;
   padding: 0;
@@ -331,20 +362,39 @@
   overflow: hidden;
 }
 
-@mixin cover($height) {
-  height: #{$height}rpx;
+// @mixin cover($height) {
+//   height: #{$height}rpx;
+//   width: $percent-100;
+//   @include absolute;
+//   background-color: rgba(255, 255, 255, 0.5);
+// }
+
+@mixin cover($height:all, $radius:0) {
+  @if $height == all {
+    height: $percent-100;
+  } @else {
+    height: #{$height}rpx;
+  }
   width: $percent-100;
-  position: absolute;
-  left: 0;
-  top: 0;
+  @include absolute;
+  @if not ($radius == 0) {
+    border-radius: #{$radius}rpx;
+  }
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 @mixin cover-all {
   height: $percent-100;
   width: $percent-100;
-  position: absolute;
-  left: 0;
-  top: 0;
+  @include absolute;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+// 小红点（消息提示）
+@mixin mark($val) {
+  content: " ";
+  display: inline-block;
+  @include round($val);
+  background: $red;
 }
