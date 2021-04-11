@@ -1,19 +1,5 @@
 # uniapp-test
 
-## Project setup
-```
-yarn install
-```
+## 绘图
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://developers.weixin.qq.com/community/develop/article/doc/000e0c324000e07782ebf5a295ac13

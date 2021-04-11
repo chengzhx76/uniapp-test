@@ -1,31 +1,13 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/test/TestMark"
-		},
-		{
-			"path": "pages/test/TabSwitch"
+			"path": "pages/draw/index"
 		},
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "Demo"
 			}
-		},
-		{
-			"path": "pages/test/SlidePanel"
-		},
-		{
-			"path": "pages/test/ChooseSwitch"
-		},
-		{
-			"path": "pages/test/TestSlideview"
-		},
-    {
-			"path": "pages/test/ShowTips"
-    },
-		{
-      "path": "pages/test/TestCoverPage"
 		}
 	],
 	"globalStyle": {
