@@ -32,7 +32,6 @@
 
         canvasHeight: 200,
         canvasWidth: 250,
-        posterHeight: 0,
 
         canvasDom: null,
         canvas: null,
@@ -79,7 +78,7 @@
         return new Promise((resolve, reject) => {
           // this.posterHeight = this.canvasWidth * (imgHeight / imgWidth)
           // this.canvasHeight = this.posterHeight
-          this.posterHeight = imgHeight
+          // this.posterHeight = imgHeight
           this.canvasHeight = this.canvasDom.height
           this.canvasWidth = this.canvasDom.width
 
@@ -90,7 +89,7 @@
           console.log(`computeCanvasSize->证书:${imgHeight} x ${imgWidth}-dpr:${this.dpr}-canvas:${this.canvasHeight} x ${this.canvasWidth}`)
 
           setTimeout(() => {
-            resolve({ 'width': this.canvasWidth, 'height': this.posterHeight })
+            resolve({ 'width': this.canvasWidth, 'height': this.canvasHeight })
           }, 1200)
         })
       },
