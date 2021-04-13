@@ -78,6 +78,7 @@
                 console.log(sy, height, loop)
                 ctx.fillText(fillText, x, y)
                 lastIndex = index
+                lineWith = 0
               }
             })
           }
