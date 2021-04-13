@@ -1,7 +1,7 @@
 {
 	"pages": [
 		{
-			"path": "pages/draw/2d"
+			"path": "pages/draw/text"
 		},
 		{
 			"path": "pages/index/index",
