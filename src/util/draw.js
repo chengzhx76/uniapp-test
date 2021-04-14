@@ -1,4 +1,5 @@
 // https://www.cnblogs.com/alpiny/p/12574017.html
+import { substr, toArray } from './emoutils'
 
 function drawImage(selector, posterUrl, callback) {
   const query = wx.createSelectorQuery()
@@ -51,7 +52,28 @@ function computeCanvasSize(canvasDom, canvas, ctx, dpr, imgWidth, imgHeight) {
   })
 }
 
+function subText(text, ctx, canvasWidth, marginWidth) {
+  const chars = toArray(text)
+  console.log(chars)
+  const charWiths = []
+  chars.forEach(char => {
+    charWiths.push(ctx.measureText(char).width)
+  })
+  const textWidth = canvasWidth - (marginWidth * 2) - ctx.measureText('...').width
+
+  let lineWith = 0
+  for (let i = 0; i < charWiths.length; i++) {
+    lineWith += charWiths[i]
+    if (lineWith >= textWidth) {
+      return `${substr(text, 0, i)}...`
+    }
+  }
+  if (lineWith < textWidth) {
+    return text
+  }
+}
 
 export {
-  drawImage
+  drawImage,
+  subText
 }
