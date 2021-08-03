@@ -30,7 +30,10 @@
     },
     methods: {
       draw() {
-        drawImage('#canvasBox', this.posterUrl, this.drawing)
+        drawImage('#canvasBox', this.posterUrl).then(res => {
+          console.log(res)
+          this.drawing(res)
+        })
       },
       drawing(ctx) {
         this.drawText(ctx)

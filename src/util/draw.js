@@ -1,26 +1,35 @@
 // https://www.cnblogs.com/alpiny/p/12574017.html
 import { substr, toArray } from './emoutils'
 
-function drawImage(selector, posterUrl, callback) {
-  const query = wx.createSelectorQuery()
-  query.select(selector)
-        .fields({
-          node: true,
-          size: true
-        }).exec(res => {
-          const canvasDom = res[0]
-          const canvas = canvasDom.node
-          const ctx = canvas.getContext('2d')
-          const dpr = wx.getSystemInfoSync().pixelRatio
-          drawing(posterUrl, canvasDom, canvas, ctx, dpr, callback)
-        })
+function drawImage(selector, posterUrl, cb) {
+  return new Promise((resolve, reject) => {
+    const query = wx.createSelectorQuery()
+    query.select(selector)
+          .fields({
+            node: true,
+            size: true
+          }).exec(res => {
+            const canvasDom = res[0]
+            const canvas = canvasDom.node
+            const ctx = canvas.getContext('2d')
+            const dpr = wx.getSystemInfoSync().pixelRatio
+            drawing(posterUrl, canvasDom, canvas, ctx, dpr, cb).then(res => {
+              resolve(res)
+            })
+          })
+  })
 }
 
-function drawing(posterUrl, canvasDom, canvas, ctx, dpr, callback) {
-  drawPoster(posterUrl, canvasDom, canvas, ctx, dpr).then(res => {
-    console.log(`证书:dpr:${dpr}-canvas:${res.height} x ${res.width}`)
-    // TODO 绘制内容
-    callback(ctx)
+function drawing(posterUrl, canvasDom, canvas, ctx, dpr, cb) {
+  return new Promise((resolve, reject) => {
+    drawPoster(posterUrl, canvasDom, canvas, ctx, dpr).then(res => {
+      // console.log(`证书:dpr:${dpr}-canvas:${res.height} x ${res.width}`)
+      // TODO 绘制内容
+      if (cb) {
+        cb(ctx)
+      }
+      resolve(ctx)
+    })
   })
 }
 
@@ -30,6 +39,7 @@ function drawPoster(posterUrl, canvasDom, canvas, ctx, dpr) {
     poster.src = posterUrl
     poster.onload = () => {
       computeCanvasSize(canvasDom, canvas, ctx, dpr, poster.width, poster.height).then(res => {
+        // console.log(poster.width, poster.height, res.width, res.height)
         ctx.drawImage(poster, 0, 0, poster.width, poster.height, 0, 0, res.width, res.height)
         resolve(res)
       })
