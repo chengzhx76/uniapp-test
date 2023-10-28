@@ -56,6 +56,7 @@
       font-size: 20rpx;
     }
   }
+  
   .weui-icon {
     height: 16px;
     width: 16px;
