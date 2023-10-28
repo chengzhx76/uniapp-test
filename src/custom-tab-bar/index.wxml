@@ -1,0 +1,4 @@
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+  自定义tab-bar
+</cover-view>
