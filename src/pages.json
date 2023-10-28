@@ -1,7 +1,7 @@
 {
 	"pages": [
 		{
-			"path": "pages/danmu/danmu"
+			"path": "pages/icon/wechat"
 		},
 		{
 			"path": "pages/index/index",
@@ -11,11 +11,12 @@
 		}
 	],
 	"globalStyle": {
+    "navigationStyle": "custom",
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
-	},
+	}/*,
 	"tabBar": {
     "custom": true,
     "color": "#7A7E83",
@@ -24,7 +25,7 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/danmu/danmu",
+        "pagePath": "pages/icon/wechat",
         "text": "组件"
       },
       {
@@ -32,5 +33,5 @@
         "text": "接口"
       }
     ]
-  }
+  }*/
 }
