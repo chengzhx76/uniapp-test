@@ -1,6 +1,12 @@
 {
 	"pages": [
 		{
+			"path": "pages/websocket/event"
+		},
+		{
+			"path": "pages/websocket/index"
+		},
+		{
 			"path": "pages/icon/wechat"
 		},
 		{

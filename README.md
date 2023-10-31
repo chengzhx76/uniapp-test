@@ -7,6 +7,9 @@ https://developers.weixin.qq.com/community/develop/article/doc/000e0c324000e0778
 set http_proxy=http://127.0.0.1:7777
 set https_proxy=http://127.0.0.1:7777
 
+## WebSocket 1005 错误 分析
+
+https://blog.csdn.net/justinsun221/article/details/121381600
 
 // 获取字节长度，中文算2个字节
 function getStrLen(str) {
