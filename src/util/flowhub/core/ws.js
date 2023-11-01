@@ -70,7 +70,6 @@ export default function (url) {
       let _result = result
 
       util.iterator(queue, (_i, next) => {
-        console.log('_i', _i)
         switch (_i.type) {
           case '__convert__': {
             util.await(_i.func(_result), (data) => {

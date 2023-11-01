@@ -73,6 +73,7 @@ export default function (url) {
   dispatcher.close = (res) => {
     if (options.status == 'run') {
       options.status = 'closed'
+      options.heartTimer && clearInterval(options.heartTimer)
       dispatcher.socket.close({
         code: 1000,
         reason: 'close',
@@ -83,6 +84,23 @@ export default function (url) {
           console.error('close.fail', error)
         }
       })
+    }
+  }
+
+  dispatcher.send = (msg, sucCallback) => {
+    if (options.status == 'run' && dispatcher.socket.readyState === 1) {
+      if (typeof(msg) != 'string') {
+        msg = JSON.stringify(msg)
+      }
+      dispatcher.socket.send({
+        data: msg,
+        success: () => {
+          sucCallback(msg)
+        }
+      })
+    } else {
+      options.status = 'close'
+      reconnect()
     }
   }
 
