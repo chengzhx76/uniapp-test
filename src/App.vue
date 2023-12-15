@@ -5,11 +5,11 @@
 		},
 		onShow: function() {
 			console.log('App Show')
-			this.$store.dispatch('RunEventListener')
+			// this.$store.dispatch('RunEventListener')
 		},
 		onHide: function() {
 			console.log('App Hide')
-			this.$store.dispatch('StopEventListener')
+			// this.$store.dispatch('StopEventListener')
 		}
 	}
 </script>

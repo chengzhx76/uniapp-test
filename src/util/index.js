@@ -50,6 +50,36 @@ function pxToRpx(px) {
   return px * 750 / store.getters.sysInfo.windowWidth
 }
 
+// 函数节流
+function throttle(fn, interval) {
+  let enterTime = 0
+  const gapTime = interval || 1000
+  return () => {
+    const context = this
+    const backTime = new Date()
+    const args = arguments
+    if (backTime - enterTime > gapTime) {
+      fn.call(context, args)
+      enterTime = backTime
+    }
+  }
+}
+ 
+// 函数防抖
+function debounce(fn, interval) {
+  let timer
+  const gapTime = interval || 1000
+  return () => {
+    timer && clearTimeout(timer)
+    const context = this
+    const args = arguments
+    timer = setTimeout(_ => {
+      fn.call(context, args)
+    }, gapTime)
+  }
+}
+
+
 export {
   toast,
   loading,
@@ -61,5 +91,8 @@ export {
 
   rpxToPx,
   pxToRpx,
+  
+  throttle,
+  debounce,
 
 }

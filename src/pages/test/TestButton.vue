@@ -1,10 +1,12 @@
 <template>
   <view class="test-btn">
-    <button class="button mark-sm">dsdd</button>
+    <button class="button mark-sm" @click="onThrottle">throttle</button>
+    <button class="button mark-sm" @click="onDebounce">debounce</button>
   </view>
 </template>   
 
 <script>
+  import { throttle, debounce } from '@/util'
   export default {
     data() {
       return {
@@ -13,8 +15,12 @@
     mounted() {
     },
     methods: {
-      switchTab() {
-      }
+      onThrottle: throttle(_ => {
+        console.log('throttle=====>')
+      }),
+      onDebounce: debounce(_ => {
+        console.log('debounce=====>')
+      })
     }
   }
 </script>
@@ -24,6 +30,7 @@
   @import "@/styles/variables.scss";
   .test-btn {
     position: relative;
+    margin-top: 200rpx;
   }
   .button {
     // @include height-rpx-width-percent(100);
@@ -38,6 +45,7 @@
     // display: inline-block;
     // padding-right: 27rpx;
     background: $white;
+    margin-top: 10rpx;;
   }
   .mark-sm::after {
     @include absolute(15, 15, right);

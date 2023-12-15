@@ -541,3 +541,18 @@ class Bullet {
 }
 
 export default Barrage
+
+
+
+const start = new Date().getTime();
+const printNum = () => {
+  console.log('----> time:', new Date() - start)
+}
+
+
+const throttled = throttle(printNum, 4000);
+
+throttled();
+setTimeout(() => { throttled(); }, 1000);
+setTimeout(() => { throttled(); }, 2000);
+setTimeout(() => { throttled(); }, 3000);
